@@ -1,5 +1,3 @@
-module QuickSearch
-  module LibAnswersSearcher
-    VERSION = '0.1.0'
-  end
+module QuickSearchLibAnswersSearcher
+	VERSION = '0.1.0'
 end
