@@ -1,7 +1,12 @@
 require 'test_helper'
 
-class QuickSearch::LibAnswersSearcher::Test < ActiveSupport::TestCase
-  test "truth" do
-    assert_kind_of Module, QuickSearch::LibAnswersSearcher
+module QuickSearch
+  class LibAnswersSearcher
+    # LibAnswersSearch tests
+    class Test < ActiveSupport::TestCase
+      test 'truth' do
+        assert_kind_of Module, QuickSearch::LibAnswersSearcher
+      end
+    end
   end
 end

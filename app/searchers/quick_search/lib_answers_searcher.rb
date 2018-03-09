@@ -1,15 +1,14 @@
 module QuickSearch
+  # QuickSearch seacher for LibAnswers
   class LibAnswersSearcher < QuickSearch::Searcher
-
     def search
       resp = @http.get(search_url)
       @response = JSON.parse(resp.body)
     end
 
-    def results
+    def results # rubocop:disable Metrics/MethodLength
       if results_list
         results_list
-
       else
         @results_list = []
 
@@ -18,13 +17,11 @@ module QuickSearch
           result.title = title(value)
           result.link = build_link(value)
           result.author = author(value)
-          #result.date = value['id']
           @results_list << result
         end
 
         @results_list
       end
-
     end
 
     def search_url
@@ -34,7 +31,7 @@ module QuickSearch
     end
 
     def loaded_link
-      QuickSearch::Engine::LIB_ANSWERS_CONFIG['loaded_link'] + 
+      QuickSearch::Engine::LIB_ANSWERS_CONFIG['loaded_link'] +
         http_request_queries['uri_escaped']
     end
 
@@ -43,10 +40,10 @@ module QuickSearch
     end
 
     def author(value)
-      if value.has_key?('topics')
+      if value.key?('topics')
         value['topics'].join(', ')
       else
-        ""
+        ''
       end
     end
 
@@ -57,6 +54,5 @@ module QuickSearch
     def title(value)
       value['question']
     end
-
   end
 end
