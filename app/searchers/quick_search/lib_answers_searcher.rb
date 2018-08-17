@@ -28,13 +28,21 @@ module QuickSearch
 
     def search_url
       QuickSearch::Engine::LIB_ANSWERS_CONFIG['base_url'] +
-        http_request_queries['uri_escaped'] +
+        CGI.escape(sanitized_user_search_query) +
         QuickSearch::Engine::LIB_ANSWERS_CONFIG['query_params']
     end
 
     def loaded_link
       QuickSearch::Engine::LIB_ANSWERS_CONFIG['loaded_link'] +
-        http_request_queries['uri_escaped']
+        sanitized_user_search_query
+    end
+
+    # Returns the sanitized search query entered by the user, skipping
+    # the default QuickSearch query filtering
+    def sanitized_user_search_query
+      # Need to use "to_str" as otherwise Japanese text isn't returned
+      # properly
+      sanitize(@q).to_str
     end
 
     def total
