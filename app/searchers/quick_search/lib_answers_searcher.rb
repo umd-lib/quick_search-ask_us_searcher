@@ -19,6 +19,7 @@ module QuickSearch
           result.title = title(value)
           result.link = build_link(value)
           result.author = author(value)
+          result.item_format = 'web_page'
           @results_list << result
         end
 
