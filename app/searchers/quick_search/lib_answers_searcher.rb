@@ -18,7 +18,7 @@ module QuickSearch
           result = OpenStruct.new
           result.title = title(value)
           result.link = build_link(value)
-          result.author = author(value)
+          result.description = topics(value)
           result.item_format = 'web_page'
           @results_list << result
         end
@@ -50,7 +50,7 @@ module QuickSearch
       @response['search']['numFound']
     end
 
-    def author(value)
+    def topics(value)
       if value.key?('topics')
         value['topics'].join(', ')
       else
