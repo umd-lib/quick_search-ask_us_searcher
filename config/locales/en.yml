@@ -1,0 +1,16 @@
+# Localization
+#
+# Replace the following placeholders with the correct values for
+# your installation.
+#
+# <NO_RESULTS_LINK>: The link for your site when there are no results
+
+en:
+  lib_answers_search:
+    display_name: "LibAnswers"
+    short_display_name: "LibAnswers"
+    search_form_placeholder: "Search LibAnswers"
+    module_callout: "Search LibAnswers"
+    error_service_message: "searching LibAnswers"
+    no_results_service_message: "a different search from LibAnswers"
+    no_results_link: "<NO_RESULTS_LINK>"

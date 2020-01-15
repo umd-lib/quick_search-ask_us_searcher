@@ -1,0 +1,24 @@
+# Configuration
+#
+# Replace the following placeholders with the correct values for
+# your installation.
+#
+# <YOUR_IID>: The iid for your site
+# <LOADED_LINK>: The direct link to your LibAnswers site
+
+defaults: &defaults
+  base_url: "https://api2.libanswers.com/1.0/search/"
+  query_params: "?iid=<YOUR_IID>&limit=3"
+  loaded_link: "<LOADED_LINK>"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+staging:
+  <<: *defaults
+
+production:
+  <<: *defaults
